@@ -37,9 +37,9 @@ public class ConsultorioService {
         );
     }
 
-    public CustomResponse<Consultorio> findOne(Consultorio consultorio) {
+    public CustomResponse<Consultorio> findOne(String clinic) {
         return new CustomResponse<>(
-                this.repository.findByName(consultorio.getName()),
+                this.repository.findByName(clinic),
                 false,
                 200,
                 "OK"

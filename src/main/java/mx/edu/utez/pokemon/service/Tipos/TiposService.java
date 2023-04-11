@@ -46,9 +46,9 @@ public class TiposService {
         );
     }
 
-    public CustomResponse<TipoPokemon> findOne(TipoPokemon tipo) {
+    public CustomResponse<TipoPokemon> findOne(String name) {
         return new CustomResponse<>(
-                this.repository.findByName(tipo.getName()),
+                this.repository.findByName(name),
                 false,
                 200,
                 "OK"
@@ -56,7 +56,7 @@ public class TiposService {
     }
 
 
-    public CustomResponse<User> delete(TipoPokemon tipoPokemon) {
+    public CustomResponse<TipoPokemon> delete(TipoPokemon tipoPokemon) {
         if (!this.repository.existsByName(tipoPokemon.getName()))
             return new CustomResponse<>(
                     null, true, 400, "Ese registro no existe en la base de datos"

@@ -39,9 +39,9 @@ public class CitaService {
         );
     }
 
-    public CustomResponse<CitaMedica> findOne(CitaMedica cita) {
+    public CustomResponse<CitaMedica> findOne(String cita) {
         return new CustomResponse<>(
-                this.repository.findByMedicalConsultation(cita.getMedicalConsultation()),
+                this.repository.findByMedicalConsultation(cita),
                 false,
                 200,
                 "OK"

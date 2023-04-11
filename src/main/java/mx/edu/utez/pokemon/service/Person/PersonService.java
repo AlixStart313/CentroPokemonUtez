@@ -48,9 +48,9 @@ public class PersonService {
         );
     }
 
-    public CustomResponse<Person> findOne(Person person) {
+    public CustomResponse<Person> findOne(String person) {
         return new CustomResponse<>(
-                this.repository.findByEmail(person.getEmail()),
+                this.repository.findByEmail(person),
                 false,
                 200,
                 "OK"

@@ -27,6 +27,19 @@ public class UsaerService {
         );
     }
 
+    public CustomResponse<User> update(User user) {
+        if (!this.repository.existsByIdUser(user.getIdUser()))
+            return new CustomResponse<>(
+                    null, true, 400, "Este registro no se encuentra en nuestra base de datos "
+            );
+
+        return new CustomResponse<>(
+                this.repository.save(user),
+                false,
+                200,
+                "Usuario actualizado  con exito"
+        );
+    }
     public CustomResponse<List<User>> findAll() {
         return new CustomResponse<>(
                 this.repository.findAll(),
@@ -49,7 +62,7 @@ public class UsaerService {
     public CustomResponse<User> deleteByUserName(User user) {
         if (!this.repository.existsByUsername(user.getUsername()))
             return new CustomResponse<>(
-                    null, true, 400, "este usuario ya esta registrado"
+                    null, true, 400, "este usuario no existe"
             );
 
         if (this.repository.existsByUsername(user.getUsername()))

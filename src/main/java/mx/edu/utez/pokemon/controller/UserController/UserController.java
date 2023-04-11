@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping("/{username}")
-    public ResponseEntity<CustomResponse<User>> getOne(@PathVariable("id") String username){
+    public ResponseEntity<CustomResponse<User>> getOne(@PathVariable("username") String username){
         return new ResponseEntity<>(
                 this.service.findOne(username),
                 HttpStatus.OK
@@ -44,7 +44,7 @@ public class UserController {
     @PutMapping("/")
     public ResponseEntity<CustomResponse<User>> updateUser(@RequestBody UserrDTO dto){
         return new ResponseEntity<>(
-                this.service.save(dto.convertToUser()),
+                this.service.update(dto.convertToUser()),
                 HttpStatus.OK);
     }
 

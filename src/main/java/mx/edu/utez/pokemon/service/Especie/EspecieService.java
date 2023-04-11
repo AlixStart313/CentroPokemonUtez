@@ -37,9 +37,9 @@ public class EspecieService {
         );
     }
 
-    public CustomResponse<Especie> findOne(Especie especie) {
+    public CustomResponse<Especie> findOne(String especie) {
         return new CustomResponse<>(
-                this.repository.findBySpecies(especie.getSpecies()),
+                this.repository.findBySpecies(especie),
                 false,
                 200,
                 "OK"

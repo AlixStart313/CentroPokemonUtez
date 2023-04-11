@@ -37,9 +37,9 @@ public class OrigenService {
         );
     }
 
-    public CustomResponse<Origen> findOne(Origen origen) {
+    public CustomResponse<Origen> findOne(String origen) {
         return new CustomResponse<>(
-                this.repository.findByIdOrigin(origen.getOrigin()),
+                this.repository.findByIdOrigin(origen),
                 false,
                 200,
                 "OK"

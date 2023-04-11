@@ -36,9 +36,9 @@ public class CombinacionService {
         );
     }
 
-    public CustomResponse<Combinacion> findOne(Combinacion combinacion) {
+    public CustomResponse<Combinacion> findOne(String combination) {
         return new CustomResponse<>(
-                this.repository.findByCombination(combinacion.getCombination()),
+                this.repository.findByCombination(combination),
                 false,
                 200,
                 "OK"

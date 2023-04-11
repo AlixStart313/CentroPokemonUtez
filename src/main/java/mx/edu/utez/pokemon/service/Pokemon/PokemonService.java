@@ -36,9 +36,9 @@ public class PokemonService {
         );
     }
 
-    public CustomResponse<Pokemon> findOne(Pokemon pokemon) {
+    public CustomResponse<Pokemon> findOne(String name) {
         return new CustomResponse<>(
-                this.repository.findByName(pokemon.getName()),
+                this.repository.findByName(name),
                 false,
                 200,
                 "OK"

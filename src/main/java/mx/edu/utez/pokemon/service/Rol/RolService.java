@@ -36,9 +36,9 @@ public class RolService {
         );
     }
 
-    public CustomResponse<Rol> findOne(Rol rol) {
+    public CustomResponse<Rol> findOne(String name) {
         return new CustomResponse<>(
-                this.repository.findByName(rol.getName()),
+                this.repository.findByName(name),
                 false,
                 200,
                 "OK"
