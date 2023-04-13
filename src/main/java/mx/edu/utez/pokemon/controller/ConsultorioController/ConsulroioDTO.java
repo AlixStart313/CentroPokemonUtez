@@ -7,11 +7,11 @@ import mx.edu.utez.pokemon.model.Consultorio.Consultorio;
 @NoArgsConstructor
 @Data
 public class ConsulroioDTO {
-    Long idclinic;
+    String id;
     String name;
     public Consultorio convertToClinic(){
         return  new Consultorio(
-                getIdclinic(),
+                getId(),
                 getName()
         );
     }

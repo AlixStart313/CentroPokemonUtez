@@ -14,6 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 public class Consultorio {
     @Id
-    Long idclinic;
+    String id;
     String name;
 }

@@ -1,7 +1,7 @@
 package mx.edu.utez.pokemon.controller.PersonController;
 
 import mx.edu.utez.pokemon.Utils.CustomResponse;
-import mx.edu.utez.pokemon.model.Person.Person;
+import mx.edu.utez.pokemon.model.Pokemon.Person.Person;
 import mx.edu.utez.pokemon.service.Person.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +44,7 @@ public class PersonController {
     @PutMapping("/")
     public ResponseEntity<CustomResponse<Person>> update(@RequestBody PersonDTO dto){
         return new ResponseEntity<>(
-                this.service.save(dto.convertToPerson()),
+                this.service.update(dto.convertToPerson()),
                 HttpStatus.OK);
     }
 

@@ -1,4 +1,4 @@
-package mx.edu.utez.pokemon.model.TiposPokemon;
+package mx.edu.utez.pokemon.model.User.TiposPokemon;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 public interface ITipoPokemonRepository extends MongoRepository<TipoPokemon,Long> {
     TipoPokemon findByName(String name);
     Boolean existsByName(String name);
+
+    Boolean existsById(String id);
+    void deleteById(String id);
 }

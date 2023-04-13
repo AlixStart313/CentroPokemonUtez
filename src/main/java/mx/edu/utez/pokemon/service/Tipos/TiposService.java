@@ -6,9 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mx.edu.utez.pokemon.Utils.CustomResponse;
-import mx.edu.utez.pokemon.model.TiposPokemon.ITipoPokemonRepository;
-import mx.edu.utez.pokemon.model.TiposPokemon.TipoPokemon;
-import mx.edu.utez.pokemon.model.User.User;
+import mx.edu.utez.pokemon.model.User.TiposPokemon.ITipoPokemonRepository;
+import mx.edu.utez.pokemon.model.User.TiposPokemon.TipoPokemon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,8 +61,7 @@ public class TiposService {
                     null, true, 400, "Ese registro no existe en la base de datos"
             );
 
-        if (this.repository.existsByName(tipoPokemon.getName()))
-            this.repository.deleteById(tipoPokemon.getIdType());
+        this.repository.deleteById(tipoPokemon.getId());
         return new CustomResponse<>(
                 null,
                 false,

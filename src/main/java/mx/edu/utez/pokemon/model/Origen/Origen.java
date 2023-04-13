@@ -14,6 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 public class Origen {
     @Id
-    Long idOrigin;
+    String id;
     String origin;
 }

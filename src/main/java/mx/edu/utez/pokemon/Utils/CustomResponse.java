@@ -15,4 +15,9 @@ public class CustomResponse<T> {
     int statusCode;
     String message;
 
+    public CustomResponse(boolean error, int statusCode, String message) {
+        this.error = error;
+        this.statusCode = statusCode;
+        this.message = message;
+    }
 }

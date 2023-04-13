@@ -27,6 +27,20 @@ public class PokemonService {
         );
     }
 
+    public CustomResponse<Pokemon> update(Pokemon pokemon) {
+        if (!this.repository.existsById(pokemon.getId()))
+            return new CustomResponse<>(
+                    null, true, 400, "Este registro ya existe"
+            );
+
+        return new CustomResponse<>(
+                this.repository.save(pokemon),
+                false,
+                200,
+                "Tipo de pokemon  registrado con exito"
+        );
+    }
+
     public CustomResponse<List<Pokemon>> findAll() {
         return new CustomResponse<>(
                 this.repository.findAll(),
@@ -52,8 +66,7 @@ public class PokemonService {
                     null, true, 400, "Ese registro no existe en la base de datos"
             );
 
-        if (this.repository.existsByName(pokemon.getName()))
-            this.repository.deleteById(pokemon.getIdPokemon());
+           this.repository.deleteById(pokemon.getId());
         return new CustomResponse<>(
                 null,
                 false,

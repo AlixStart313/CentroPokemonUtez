@@ -13,4 +13,7 @@ public interface IEspecieRepository extends MongoRepository<Especie,Long> {
 
     Boolean existsBySpecies(String name);
 
+    Boolean existsById(String id);
+    void deleteById(String id);
+
 }

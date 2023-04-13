@@ -5,14 +5,14 @@ import mx.edu.utez.pokemon.model.Combinacion.Combinacion;
 import mx.edu.utez.pokemon.model.Especie.Especie;
 import mx.edu.utez.pokemon.model.Origen.Origen;
 import mx.edu.utez.pokemon.model.Pokemon.Pokemon;
-import mx.edu.utez.pokemon.model.TiposPokemon.TipoPokemon;
+import mx.edu.utez.pokemon.model.User.TiposPokemon.TipoPokemon;
 import mx.edu.utez.pokemon.model.User.User;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class PokemonDTO {
-    Long idPokemon;
+    String id;
     String name;
     int age;
     String description;
@@ -24,7 +24,7 @@ public class PokemonDTO {
 
     public Pokemon convertToPokemon(){
         return  new Pokemon(
-                getIdPokemon(),
+                getId(),
                 getName(),
                 getAge(),
                 getDescription(),

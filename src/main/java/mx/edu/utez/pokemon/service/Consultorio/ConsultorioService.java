@@ -48,13 +48,12 @@ public class ConsultorioService {
 
 
     public CustomResponse<Consultorio> delete(Consultorio consultorio) {
-        if (!this.repository.existsByName(consultorio.getName()))
+        if (!this.repository.existsById(consultorio.getId()))
             return new CustomResponse<>(
                     null, true, 400, "Ese registro no existe en la base de datos"
             );
 
-        if (this.repository.existsByName(consultorio.getName()))
-            this.repository.deleteById(consultorio.getIdclinic());
+           this.repository.deleteById(consultorio.getId());
         return new CustomResponse<>(
                 null,
                 false,

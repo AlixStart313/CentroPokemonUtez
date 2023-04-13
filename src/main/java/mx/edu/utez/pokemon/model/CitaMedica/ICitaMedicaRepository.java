@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ICitaMedicaRepository extends MongoRepository<CitaMedica,Long> {
      CitaMedica findByMedicalConsultation(String consultation);
-     Boolean existsByIdmedicalConsultation(Long id);
+     Boolean existsById(String id);
+     void deleteById(String id);
 }

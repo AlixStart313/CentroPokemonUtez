@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IOrigenRepository  extends MongoRepository<Origen,Long> {
-    Origen findByIdOrigin(String name);
+    Origen findById(String name);
     Boolean existsByOrigin(String name);
+
+    Boolean existsById(String id);
+    void deleteById(String id);
 }

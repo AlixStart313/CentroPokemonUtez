@@ -8,13 +8,13 @@ import mx.edu.utez.pokemon.model.Combinacion.Combinacion;
 @NoArgsConstructor
 @Data
 public class CombinacionDTO {
-    Long idCombination;
+    String id;
 
     String combination;
 
     public Combinacion convertoToCombination(){
         return  new Combinacion(
-                getIdCombination(),
+                getId(),
                 getCombination()
         );
     }

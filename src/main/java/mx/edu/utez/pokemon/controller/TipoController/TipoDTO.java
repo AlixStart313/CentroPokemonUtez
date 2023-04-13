@@ -4,19 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mx.edu.utez.pokemon.model.TiposPokemon.TipoPokemon;
+import mx.edu.utez.pokemon.model.User.TiposPokemon.TipoPokemon;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 public class TipoDTO {
-    Long idType;
+    String id;
     String name;
 
     public TipoPokemon convertToType(){
         return  new TipoPokemon(
-                getIdType(),
+                getId(),
                 getName()
         );
     }

@@ -7,11 +7,11 @@ import mx.edu.utez.pokemon.model.Origen.Origen;
 @NoArgsConstructor
 @Data
 public class OrigenDTO {
-    Long idOrigin;
+    String id;
     String origin;
     public Origen convertToOrigin(){
         return  new Origen(
-                getIdOrigin(),
+                getId(),
                 getOrigin()
         );
     }

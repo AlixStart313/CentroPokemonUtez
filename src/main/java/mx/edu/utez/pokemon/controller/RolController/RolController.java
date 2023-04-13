@@ -1,14 +1,12 @@
 package mx.edu.utez.pokemon.controller.RolController;
 
 import mx.edu.utez.pokemon.Utils.CustomResponse;
-import mx.edu.utez.pokemon.controller.TipoController.TipoDTO;
 import mx.edu.utez.pokemon.model.Rol.Rol;
-import mx.edu.utez.pokemon.model.TiposPokemon.TipoPokemon;
 import mx.edu.utez.pokemon.service.Rol.RolService;
-import mx.edu.utez.pokemon.service.Tipos.TiposService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,9 +49,9 @@ public class RolController {
     }
 
     @DeleteMapping("/")
-    public ResponseEntity<CustomResponse<Rol>> delete(@RequestBody RolDTO dto){
-        return  new ResponseEntity<>(
-                this.service.delete(dto.converToRol()),
+    public ResponseEntity<Rol> delete(@RequestBody RolDTO dto){
+        return  new ResponseEntity<Rol>(
+                (MultiValueMap<String, String>) this.service.delete(dto.converToRol()),
                 HttpStatus.OK);
     };
 }

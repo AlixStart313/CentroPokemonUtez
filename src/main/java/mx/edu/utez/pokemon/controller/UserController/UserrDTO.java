@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 @Setter
 @Getter
 public class UserrDTO {
-    Long idUser;
+    String id;
 
     String username;
     String password;
@@ -18,7 +18,7 @@ public class UserrDTO {
 
     public User convertToUser(){
         return  new User(
-                getIdUser(),
+                getId(),
                 getUsername(),
                 getPassword(),
                 getRol()

@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 public interface ICombinacionRepository extends MongoRepository<Combinacion,Long> {
     Combinacion findByCombination(String name);
     Boolean existsByCombination(String name);
+
+    Boolean existsById(String id);
+    void deleteById(String id);
 }

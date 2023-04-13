@@ -14,7 +14,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 public class Combinacion {
     @Id
-    Long idCombination;
-
+    String id;
     String combination;
 }

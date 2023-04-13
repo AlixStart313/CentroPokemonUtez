@@ -46,16 +46,14 @@ public class RolService {
     }
 
 
-    public CustomResponse<Rol> delete(Rol rol) {
+    public  CustomResponse<Rol> delete(Rol rol) {
         if (!this.repository.existsByName(rol.getName()))
             return new CustomResponse<>(
                     null, true, 400, "Ese registro no existe en la base de datos"
             );
 
-        if (this.repository.existsByName(rol.getName()))
-            this.repository.deleteById(rol.getIdRoles());
-        return new CustomResponse<>(
-                null,
+        this.repository.deleteById(rol.getId());
+        return new CustomResponse(
                 false,
                 200,
                 "registro eliminado con exito");

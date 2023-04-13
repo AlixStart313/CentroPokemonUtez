@@ -1,7 +1,7 @@
 package mx.edu.utez.pokemon.controller.TipoController;
 
 import mx.edu.utez.pokemon.Utils.CustomResponse;
-import mx.edu.utez.pokemon.model.TiposPokemon.TipoPokemon;
+import mx.edu.utez.pokemon.model.User.TiposPokemon.TipoPokemon;
 import mx.edu.utez.pokemon.service.Tipos.TiposService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

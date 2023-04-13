@@ -7,11 +7,12 @@ import mx.edu.utez.pokemon.model.Rol.Rol;
 @NoArgsConstructor
 @Data
 public class RolDTO {
-    Long idRoles;
+    String id;
     String name;
  public Rol converToRol(){
      return new Rol(
-             getIdRoles(),getName()
+             getId(),
+             getName()
      );
  }
 }

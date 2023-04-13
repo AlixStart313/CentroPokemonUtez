@@ -24,7 +24,21 @@ public class OrigenService {
                 this.repository.save(origen),
                 false,
                 200,
-                "Tipo de pokemon  registrado con exito"
+                "Registro existoso"
+        );
+    }
+
+    public CustomResponse<Origen> update(Origen origen) {
+        if (!this.repository.existsById(origen.getId()))
+            return new CustomResponse<>(
+                    null, true, 400, "Este registro no existe"
+            );
+
+        return new CustomResponse<>(
+                this.repository.save(origen),
+                false,
+                200,
+                "Registro modificado"
         );
     }
 
@@ -39,7 +53,7 @@ public class OrigenService {
 
     public CustomResponse<Origen> findOne(String origen) {
         return new CustomResponse<>(
-                this.repository.findByIdOrigin(origen),
+                this.repository.findById(origen),
                 false,
                 200,
                 "OK"
@@ -53,8 +67,7 @@ public class OrigenService {
                     null, true, 400, "Ese registro no existe en la base de datos"
             );
 
-        if (this.repository.existsByOrigin(origen.getOrigin()))
-            this.repository.deleteById(origen.getIdOrigin());
+        this.repository.deleteById(origen.getId());
         return new CustomResponse<>(
                 null,
                 false,

@@ -1,14 +1,14 @@
 package mx.edu.utez.pokemon.controller.PersonController;
 
 import lombok.*;
-import mx.edu.utez.pokemon.model.Person.Person;
+import mx.edu.utez.pokemon.model.Pokemon.Person.Person;
 import mx.edu.utez.pokemon.model.User.User;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class PersonDTO {
-    Long idPeople;
+    String id;
     String name;
     String lastName;
     String surName;
@@ -16,7 +16,7 @@ public class PersonDTO {
     User user;
     public Person convertToPerson(){
         return   new Person(
-                getIdPeople(),
+                getId(),
                 getName(),
                 getLastName(),
                 getSurName(),

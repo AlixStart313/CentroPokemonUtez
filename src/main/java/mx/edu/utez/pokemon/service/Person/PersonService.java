@@ -1,9 +1,8 @@
 package mx.edu.utez.pokemon.service.Person;
 
 import mx.edu.utez.pokemon.Utils.CustomResponse;
-import mx.edu.utez.pokemon.model.Combinacion.Combinacion;
-import mx.edu.utez.pokemon.model.Person.IPersonRepository;
-import mx.edu.utez.pokemon.model.Person.Person;
+import mx.edu.utez.pokemon.model.Pokemon.Person.IPersonRepository;
+import mx.edu.utez.pokemon.model.Pokemon.Person.Person;
 import mx.edu.utez.pokemon.model.User.IUserRepository;
 import mx.edu.utez.pokemon.model.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,22 @@ public class PersonService {
                 this.repository.save(person),
                 false,
                 200,
-                "Tipo de pokemon  registrado con exito"
+                "Persona registrado con exito"
+        );
+    }
+
+    public CustomResponse<Person> update(Person person) {
+        if (!this.repository.existsById(person.getId()))
+            return new CustomResponse<>(
+                    null, true, 400, "Este registro no existe"
+            );
+
+        this.userRepository.save(person.getUser());
+        return new CustomResponse<>(
+                this.repository.save(person),
+                false,
+                200,
+                "Persona modificada con exito"
         );
     }
 
@@ -66,9 +80,9 @@ public class PersonService {
 
         if (this.repository.existsByEmail(person.getEmail())){
             User userdelete= userRepository.findByUsername(person.getUser().getUsername());
-            this.userRepository.deleteById(userdelete.getIdUser());
-            this.repository.deleteById(person.getIdPeople());
-        }
+            this.userRepository.deleteById(userdelete.getId());
+             this.repository.deleteById(person.getId());
+       }
         return new CustomResponse<>(
                 null,
                 false,

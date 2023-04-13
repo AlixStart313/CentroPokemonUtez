@@ -19,6 +19,6 @@ import javax.annotation.processing.Generated;
 @Getter
 public class Rol {
     @Id
-    Long idRoles;
+    String id;
     String name;
 }

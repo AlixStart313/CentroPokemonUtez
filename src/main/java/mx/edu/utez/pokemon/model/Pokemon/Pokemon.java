@@ -7,7 +7,7 @@ import lombok.Setter;
 import mx.edu.utez.pokemon.model.Combinacion.Combinacion;
 import mx.edu.utez.pokemon.model.Especie.Especie;
 import mx.edu.utez.pokemon.model.Origen.Origen;
-import mx.edu.utez.pokemon.model.TiposPokemon.TipoPokemon;
+import mx.edu.utez.pokemon.model.User.TiposPokemon.TipoPokemon;
 import mx.edu.utez.pokemon.model.User.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,7 +19,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 public class Pokemon {
     @Id
-    Long idPokemon;
+    String id;
     String name;
     int age;
     String description;

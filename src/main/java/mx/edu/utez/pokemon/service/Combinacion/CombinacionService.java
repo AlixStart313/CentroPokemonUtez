@@ -13,6 +13,7 @@ public class CombinacionService {
     @Autowired
     private ICombinacionRepository repository;
 
+    //works!!
     public CustomResponse<Combinacion> save(Combinacion combinacion) {
         if (this.repository.existsByCombination(combinacion.getCombination()))
             return new CustomResponse<>(
@@ -27,6 +28,7 @@ public class CombinacionService {
         );
     }
 
+    //works!!
     public CustomResponse<List<Combinacion>> findAll() {
         return new CustomResponse<>(
                 this.repository.findAll(),
@@ -36,6 +38,7 @@ public class CombinacionService {
         );
     }
 
+    //works!!
     public CustomResponse<Combinacion> findOne(String combination) {
         return new CustomResponse<>(
                 this.repository.findByCombination(combination),
@@ -45,15 +48,15 @@ public class CombinacionService {
         );
     }
 
-
+    //works!!
     public CustomResponse<Combinacion> delete(Combinacion combinacion) {
-        if (!this.repository.existsByCombination(combinacion.getCombination()))
+        if (!this.repository.existsById(combinacion.getId()))
             return new CustomResponse<>(
                     null, true, 400, "Ese registro no existe en la base de datos"
             );
 
         if (this.repository.existsByCombination(combinacion.getCombination()))
-            this.repository.deleteById(combinacion.getIdCombination());
+            this.repository.deleteById(combinacion.getId());
         return new CustomResponse<>(
                 null,
                 false,

@@ -48,7 +48,7 @@ public class OrigenController {
     public ResponseEntity<CustomResponse<Origen>> update(@RequestBody OrigenDTO dto){
 
         return new ResponseEntity<>(
-                this.service.save(dto.convertToOrigin()),
+                this.service.update(dto.convertToOrigin()),
                 HttpStatus.OK);
     }
 

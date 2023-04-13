@@ -27,7 +27,19 @@ public class EspecieService {
                 "Tipo de pokemon  registrado con exito"
         );
     }
+    public CustomResponse<Especie> update(Especie especie) {
+        if (!this.repository.existsBySpecies(especie.getSpecies()))
+            return new CustomResponse<>(
+                    null, true, 400, "Este registro No existe en la base de datos"
+            );
 
+        return new CustomResponse<>(
+                this.repository.save(especie),
+                false,
+                200,
+                "Especie registrada con exito"
+        );
+    }
     public CustomResponse<List<Especie>> findAll() {
         return new CustomResponse<>(
                 this.repository.findAll(),
@@ -48,13 +60,12 @@ public class EspecieService {
 
 
     public CustomResponse<Especie> delete(Especie especie) {
-        if (!this.repository.existsBySpecies(especie.getSpecies()))
+        if (!this.repository.existsById(especie.getId()))
             return new CustomResponse<>(
                     null, true, 400, "Ese registro no existe en la base de datos"
             );
 
-        if (this.repository.existsBySpecies(especie.getSpecies()))
-            this.repository.deleteById(especie.getIdSpecies());
+            this.repository.deleteById(especie.getId());
         return new CustomResponse<>(
                 null,
                 false,

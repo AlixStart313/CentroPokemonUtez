@@ -9,4 +9,9 @@ public interface IRolRepository extends MongoRepository<Rol, Long> {
 
     Boolean existsByName(String name);
 
+    Boolean existsById(String id);
+    void deleteById(String id);
+
+
+
 }

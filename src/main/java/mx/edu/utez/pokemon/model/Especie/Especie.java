@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 public class Especie {
     @Id
-    Long idSpecies;
+    String id;
     String species;
 
 }

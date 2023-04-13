@@ -44,7 +44,7 @@ public class CitaMedicaController {
     @PutMapping("/")
     public ResponseEntity<CustomResponse<CitaMedica>> update(@RequestBody CitaDTO dto){
         return new ResponseEntity<>(
-                this.service.save(dto.convertTomedicalConsultation()),
+                this.service.update(dto.convertTomedicalConsultation()),
                 HttpStatus.OK);
     }
 

@@ -7,11 +7,11 @@ import mx.edu.utez.pokemon.model.Especie.Especie;
 @NoArgsConstructor
 @Data
 public class EspecoeDTO {
-    Long idSpecies;
+    String id;
     String species;
     public Especie convertToSpecies(){
         return  new Especie(
-                getIdSpecies(),
+                getId(),
                 getSpecies()
         );
     }
